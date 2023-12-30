@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "About StaffApp";
+}
+
+@{
+    // string currentTheme = ViewBag.SelectedTheme as string;
+    //string currentTheme = (string)ViewData["Layout"];
+    //Layout = (string)ViewData["Layout"];
+
+    Layout = @HttpContextAccessor.HttpContext.Session.GetString("Layout") ?? "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <div class="mt-4">
+        <h2 class="h4">About the Creator</h2>
+        <p>
+            StaffApp is the brainchild of Pablo Lago, a visionary developer with a passion for simplifying staff management and enhancing human resources processes. With a keen understanding of the challenges faced by HR professionals, Pablo embarked on a mission to create a tool that streamlines staff details and paves the way for future feature development.
+        </p>
+    </div>
+
+    <div class="mt-4">
+        <h2 class="h4">The Vision</h2>
+        <p>
+            StaffApp is designed to be an intuitive and efficient solution for managing staff information. Whether you're a small business or a large enterprise, StaffApp offers a user-friendly platform to centralize employee details, making HR tasks more accessible and manageable.
+        </p>
+    </div>
+
+    <div class="mt-4">
+        <h2 class="h4">Features and Future Developments</h2>
+        <p>
+            At its core, StaffApp aims to simplify HR tasks, providing a robust foundation for staff management. The commitment to excellence means that StaffApp will evolve alongside industry trends, ensuring it remains a valuable asset for HR professionals.
+        </p>
+    </div>
+
+   
+    <div class="mt-4"></div>
+</div>

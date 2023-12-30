@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    // string currentTheme = ViewBag.SelectedTheme as string;
+    //string currentTheme = (string)ViewData["Layout"];
+    //Layout = (string)ViewData["Layout"];
+
+    Layout = @HttpContextAccessor.HttpContext.Session.GetString("Layout") ?? "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="mt-4">
+    <h2 class="h3">Welcome to StaffApp</h2>
+    <p>
+        Explore the innovative world of StaffApp, a creation by Pablo Lago.
+    </p>
+    <p>
+        Join us on this journey of simplifying HR tasks and fostering a more efficient workplace with StaffApp!
+    </p>
+</div>
+
+<div class="mt-4">
+    <h4>Switch Theme:</h4>
+    <a class="btn btn-primary theme-button" href="/Theme/Index?theme=Theme1&backUrl=Home">Switch to Theme 1</a>
+    <a class="btn btn-success theme-button" href="/Theme/Index?theme=Theme2&backUrl=Home">Switch to Theme 2</a>
+    <a class="btn btn-info theme-button" href="/Theme/Index?theme=Theme3&backUrl=Home">Switch to Theme 3</a>
+</div>
+
+<style>
+    .current-theme {
+        font-weight: bold;
+    }
+
+    .theme-button {
+        margin-right: 10px;
+    }
+</style>
+
+ <br />
+@*
+<p class="current-theme">Current Theme: @currentTheme</p>
+<br /> *@
